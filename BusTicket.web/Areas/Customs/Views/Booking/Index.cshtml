@@ -1,0 +1,39 @@
+﻿@{
+     Layout = "_Layout";
+}
+<div class="container p-4">
+    <div class="row p-3">
+        <div class="col-6">
+            <h2 class="text-primary">List of Bookings</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-action="createupdate"
+               asp-controller="Booking">Create New Booking</a>
+        </div>
+    </div>
+</div>
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Bus Number
+            </th>
+            <th>
+                Seat No
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+    {
+    <script src="~/js/Booking.js"></script>
+    }
+

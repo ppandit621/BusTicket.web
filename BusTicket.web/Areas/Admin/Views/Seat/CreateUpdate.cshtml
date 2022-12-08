@@ -1,0 +1,36 @@
+﻿@model BusTickets.Models.SeatDetails
+@{
+    var bus =new SelectList((System.Collections.IEnumerable)ViewData["bus"], "Id", "BusNumber");
+}
+<form method="post" asp-action="CreateUpdate"enctype="multipart/form-data">
+    <input type="hidden"asp-for="Id"/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-3">
+            <h2 class="text-primary">@((Model == null || Model.Id == 0) ? "Add" : "Update")Seat Details</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="row mb-3">
+            <label asp-for="SeatNo"></label>
+            <input asp-for="SeatNo" class="form-control" />
+            <span asp-validation-for="SeatNo" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="BusId"></label>
+            <select asp-for="BusId" asp-items="bus" class="form-control"></select>
+        </div>
+        @if (Model == null || Model.Id == 0)
+        {
+            <button class="btn btn-primary"type="submit">Create</button>
+        }
+        else
+        {
+            <button class="btn btn-primary" type="submit">update</button>
+        }
+    </div>
+</form>
+
